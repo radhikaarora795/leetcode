@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+        for(int i=0;i<flowerbed.size();i++){
+            if(flowerbed[i]==0 && (i==0 || flowerbed[i-1]==0) && (i==flowerbed.size()-1 || flowerbed[i+1]==0)){
+                flowerbed[i]=1;
+                n--;
+                i++;
+            }
+        }
+        return n<=0;    // if n <= 0, return true; otherwise false
+    }
+};
+
+int main() {
+    Solution s;
+    vector<int> v={1,0,0,0,1};
+    cout<<s.canPlaceFlowers(v,2);
+    
+    return 0;
+}
