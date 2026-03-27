@@ -39,10 +39,10 @@ public:
             q.pop();
             output.push_back(v);
             for(int l=1;l<=n;l++){
-                    if(adjacencyMatrix[v][l]==1 && !visited[l]){
+                if(adjacencyMatrix[v][l]==1 && !visited[l]){
                     q.push(l);
                     visited[l]=true;    
-                    }
+                }
             }
                 
             
