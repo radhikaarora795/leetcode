@@ -34,6 +34,15 @@ int sum(node *root){
     return root->data + left + right;
 }
 
+int maximum(node *root){
+    if(root == nullptr){
+        return INT_MIN;
+    }
+    int left=maximum(root->left);
+    int right=maximum(root->right);
+    return max(root->data,max(left,right));
+}
+
 int main() {
     node *root=nullptr;
     root = insertNode(root, 50);
@@ -44,7 +53,8 @@ int main() {
     root = insertNode(root, 60);
     root = insertNode(root, 80);
 
-    cout<<sum(root);
+    // cout<<sum(root);
+    cout<<maximum(root);
     
     return 0;
 }
